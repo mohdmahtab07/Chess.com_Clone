@@ -93,7 +93,7 @@ export const ChessBoard = ({
               const squareNotation = getSquareNotation(actualRow, actualCol);
 
               const isDark = (rowIndex + colIndex) % 2 === 1;
-              const isSelected = selectedSquare === squareNotation;
+              // const isSelected = selectedSquare === squareNotation;
               const isLegalMove = legalMoves.includes(squareNotation);
 
               const piece = square ? square.type : null;

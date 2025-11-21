@@ -19,7 +19,6 @@ const Game = () => {
   const { socket, isConnected } = useSocket();
   const [gameState, setGameState] = useState<GameState>("menu");
   const [color, setColor] = useState<Color>(null);
-  const [opponent, setOpponent] = useState<string | null>(null);
   const [fen, setFen] = useState<string>(
     "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
   );
@@ -42,7 +41,6 @@ const Game = () => {
         console.log("Game started", data);
         setGameState("playing");
         setColor(data.color as Color);
-        setOpponent(data.opponent);
         setFen(data.fen);
         setMoves(data.moves || []);
       }
