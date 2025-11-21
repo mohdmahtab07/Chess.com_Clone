@@ -2,15 +2,19 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import { useEffect, useState } from "react";
 
+
+
 const Landing = () => {
   const navigate = useNavigate();
   const [totalGamesPlayed, setTotalGamesPlayed] = useState(0);
   const [totalPlaying, setTotalPlaying] = useState(0);
 
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8080";
+
   useEffect(() => {
     const fetchAnalytics = async () => {
       try {
-        const res = await fetch("http://localhost:8080/analytics");
+        const res = await fetch(`${BACKEND_URL}/analytics`);
         const data = await res.json();
         console.log("Analytics data:", data);
         setTotalGamesPlayed(data.totalGames);
