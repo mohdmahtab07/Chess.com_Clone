@@ -10,7 +10,7 @@ const Landing = () => {
   useEffect(() => {
     const fetchAnalytics = async () => {
       try {
-        const res = await fetch("https://chess-backend-1kz0.onrender.com/analytics");
+        const res = await fetch("http://localhost:8080/analytics");
         const data = await res.json();
         console.log("Analytics data:", data);
         setTotalGamesPlayed(data.totalGames);
